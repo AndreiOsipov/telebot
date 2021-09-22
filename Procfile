@@ -1,0 +1,1 @@
+worker: python dv_bot.py $PORT
