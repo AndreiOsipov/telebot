@@ -3,7 +3,8 @@ from config import TOKEN
 import telebot
 import markup_generates
 import threading
-
+import talk_to_bd
+talk_to_bd.create_table()
 bot = telebot.TeleBot(token=TOKEN)
 @bot.callback_query_handler(func=lambda call: True)
 def inline_menu(call):
