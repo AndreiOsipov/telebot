@@ -53,7 +53,7 @@ def new_time(mode, message_text, time_dif):
             next_show_datetime = message_show_datetime + datetime.timedelta(hours=1)
         elif mode == 'plus_minute':
             next_show_datetime = message_show_datetime + datetime.timedelta(minutes=5)
-        elif mode == 'pluse_one':
+        elif mode == 'plus_one':
             next_show_datetime = message_show_datetime + datetime.timedelta(minutes=1)
         elif mode == 'minus_hour':
             next_show_datetime = message_show_datetime - datetime.timedelta(hours=1)
