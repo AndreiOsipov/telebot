@@ -7,7 +7,7 @@ def generate_time_markup():
     add_minute_button = types.InlineKeyboardButton('+ 5 минут', callback_data='plus_minute')
     minus_hour_button = types.InlineKeyboardButton('- час', callback_data='minus_hour')
     minus_minute_button = types.InlineKeyboardButton('- 5 минут', callback_data='minus_minute')
-    pluse_one_button = types.InlineKeyboardButton('+ 1 минута', callback_data='pluse_one')
+    pluse_one_button = types.InlineKeyboardButton('+ 1 минута', callback_data='plus_one')
     minuse_one_button = types.InlineKeyboardButton('- 1 минута', callback_data='minus_one')
     delete_timer_button = types.InlineKeyboardButton('удалить этот таймер', callback_data='delete')
     #-----------клава-----------
