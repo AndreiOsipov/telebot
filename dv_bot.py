@@ -27,7 +27,7 @@ def inline_menu(call):
         bot.delete_message(this_chat_id, this_message_id)
     elif call.data == 'update_tz':
         try:
-            bot.edit_message_text(chat_id=this_chat_id, message_id=this_message_id, text='выбери и этих часовых поясов', reply_markup=markup_generates.generate_timezone_markup())
+            bot.edit_message_text(chat_id=this_chat_id, message_id=this_message_id, text='выбери из этих часовых поясов', reply_markup=markup_generates.generate_timezone_markup())
         except:
             pass
     else:
