@@ -7,10 +7,19 @@ def create_table():
         user_id INTEGER,
         mission_text TEXT,
         alarm_time TEXT,
-        mission_id INTEGER)
-    ''')
-
+        mission_id INTEGER
+    )''')
+    cur.execute('''CREATE TABLE IF NOT EXISTS timezones(
+        user_id INTEGER PRIMARY KEY,
+        timezone INTEGER
+    )''')
     con.commit()
+def find_time_dif(chat_id):
+    con = sqlite3.connect('general.db')
+    con.row_factory = lambda cursor, row: row[0]
+    cur = con.cursor()
+    return cur.execute('SELECT timezone FROM timezones WHERE user_id=?',(chat_id,)).fetchone()
+
 def create_new_row(chat_id, user_text, alarm_time, message_id):
     #----------------------------------------------------------------------------------------
     con = sqlite3.connect('general.db')
@@ -18,7 +27,12 @@ def create_new_row(chat_id, user_text, alarm_time, message_id):
     #Затем вставляется новая строка, alarm_time сначала равен None
     cur.execute('INSERT INTO users VALUES (?,?,?,?)', (chat_id, user_text, alarm_time, message_id))
     con.commit()
-
+def commit_timezone(chat_id, timezone):
+    con = sqlite3.connect('general.db')
+    cur = con.cursor()
+    cur.execute('INSERT OR REPLACE INTO timezones VALUES(?,?)', (chat_id, timezone))
+    con.commit()
+    
 def update_timer(chat_id, message_id, next_datetime):
     con = sqlite3.connect('general.db')
     cur = con.cursor()
