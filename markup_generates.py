@@ -18,7 +18,6 @@ def generate_time_markup():
 
 def generate_timezone_markup():
     set_tz_markup = types.InlineKeyboardMarkup(row_width=3)
-    print('-----------создана клава часовых поясов-------------------')
     for i in range(-11, 12, 3):
         button_list = []
         for j in range(3):
@@ -35,5 +34,4 @@ def generate_timezone_markup():
         
         set_tz_markup.add(button1, button2, button3)
     set_tz_markup.add(types.InlineKeyboardButton('Обновить часовые пояса', callback_data='update_tz'))
-    print('----------------------в неё все добавлено----------------------')
     return set_tz_markup
