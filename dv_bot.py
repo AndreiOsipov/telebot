@@ -34,6 +34,7 @@ def inline_menu(call):
         utils.update_timezone(this_chat_id, int(call.data))
         try:
             bot.edit_message_text(chat_id=this_chat_id, message_id=this_message_id, text='можешь в любой момент изменить выбор: ', reply_markup=markup_generates.generate_timezone_markup())
+            bot.send_message(chat_id=this_chat_id, text='часвой пояс выбран')
         except:
             pass
 @bot.message_handler(commands=['start'])
